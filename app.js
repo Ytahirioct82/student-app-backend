@@ -1,14 +1,23 @@
 // App.js
 // Define the rout handlers
 
-const express = require("express");
-const studentData = require("./studentData.json");
-
 //Create an instance of a express application.
 
+const express = require("express");
+const cors = require("cors");
+const studentData = require("./studentData.json");
+
+// Import OUR stuff (our files, our components)
+const studentsData = require("./studentsData.json");
+
+// Init express application
 const app = express();
 
-// Define our routes.
+// Set up middleware
+// Functions that will work with req, res before
+// the final route handler function
+
+app.use(cors());
 // Healthcheck route.
 // GET / method = GET path = /
 
