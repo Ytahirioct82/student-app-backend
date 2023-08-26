@@ -1,4 +1,7 @@
-//Create an instance of a express application.
+// Define our route handlers here
+// Separation of concerns
+// Import external stuff (libraries)
+// Import express library
 
 const express = require("express");
 const studentsController = require("./controllers/studentsController");
@@ -10,14 +13,13 @@ const app = express();
 // Set up middleware
 // Functions that will work with req, res before
 // the final route handler function
-
 app.use(cors());
 
 // controllers
 app.use("/students", studentsController);
 // Define the rout handlers
 
-// Healthcheck route.
+// HealthCheck route.
 
 app.get("/", (req, res) => {
   // Handler goes here

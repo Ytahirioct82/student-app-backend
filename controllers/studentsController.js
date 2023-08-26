@@ -1,11 +1,10 @@
 const express = require("express");
-const { getAllStudents, getStudent } = require("../queries/studentsQueries");
+const { getAllStudents, getStudentById } = require("../queries/studentsQueries");
 const studentsController = express.Router();
 
-//Get /students
+// Get /students
 // Define path + method and handlers
 // Catch errors
-
 studentsController.get("/", (req, res) => {
   try {
     // Handler goes here and gets all students
@@ -17,13 +16,11 @@ studentsController.get("/", (req, res) => {
   }
 
   // Get / students / id
-
   studentsController.get("/:id", (req, res) => {
     try {
-      // Handler goes here and gets all students
-
+      // Handler goes here and gets the student with id
       const { id } = req.params;
-      const student = getStudent(id);
+      const student = getStudentById(id);
 
       return student
         ? res.status(200).json({ data: student })
