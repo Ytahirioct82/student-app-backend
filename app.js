@@ -4,8 +4,11 @@
 // Import express library
 
 const express = require("express");
-const studentsController = require("./controllers/studentsController");
 const cors = require("cors");
+
+// Import our stuff (our files, our components)
+const studentsController = require("./controllers/studentsController");
+const studentsControllerV2 = require("./controllers/v2/studentsControllerV2");
 
 // Init express application
 const app = express();
@@ -17,6 +20,7 @@ app.use(cors());
 
 // controllers
 app.use("/students", studentsController);
+app.use("/v2/students", studentsControllerV2);
 // Define the rout handlers
 
 // HealthCheck route.
