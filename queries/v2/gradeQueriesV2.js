@@ -15,6 +15,7 @@ const getGradesByStudentIdV2 = (id) => {
       results.push(grade);
     }
   }
+  //return results with all grades
   return results;
 };
 
