@@ -1,9 +1,9 @@
 const gradesDataV2 = require("../../data/v2/studentGradesV2.json");
+const { grades } = gradesDataV2;
 
 const getGradesByStudentIdV2 = (id) => {
   // Create an array to hold the result.
   const results = [];
-  const { grades } = gradesDataV2;
 
   // for each grade..
   for (const grade of grades) {
@@ -19,4 +19,14 @@ const getGradesByStudentIdV2 = (id) => {
   return results;
 };
 
-module.exports = { getGradesByStudentIdV2 };
+const getAllGradesV2 = () => {
+  return grades;
+};
+
+const getGradeByIdV2 = (id) => {
+  const grade = grades.find((grade) => id === grade.id);
+  console.log("run", grade);
+  return grade;
+};
+
+module.exports = { getGradesByStudentIdV2, getAllGradesV2, getGradeByIdV2 };
