@@ -5,6 +5,7 @@
 
 const express = require("express");
 const cors = require("cors");
+const db = require("./db");
 
 // Import our stuff (our files, our components)
 const studentsController = require("./controllers/studentsController");
@@ -24,6 +25,17 @@ app.use("/students", studentsController);
 app.use("/v2/students", studentsControllerV2);
 app.use("/v2/grades", gradesControllerV2);
 // Define the rout handlers
+
+// Other code for middleware, controllers, healthcheck route not shown here…
+app.get("/tests", async (request, response) => {
+  try {
+    const tests = await db.any("SELECT * FROM tests;");
+
+    response.status(200).json({ data: tests });
+  } catch (err) {
+    response.status(500).json({ error: err.message });
+  }
+});
 
 // HealthCheck route.
 
