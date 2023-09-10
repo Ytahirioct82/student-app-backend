@@ -1,6 +1,6 @@
 // Server.js
-// Import the app
 // Start up and listen
+// Import the app
 
 require("dotenv").config();
 

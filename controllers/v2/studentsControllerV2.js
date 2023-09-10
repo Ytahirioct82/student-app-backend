@@ -13,8 +13,9 @@ const studentsControllerV2 = express.Router();
 // Catch errors
 studentsControllerV2.get("/", (req, res) => {
   try {
-    const { includes } = req.query;
-    if (includes === "grades") {
+    const { include } = req.query;
+
+    if (include === "grades") {
       // embed the grades
       const students = getAllStudentsWIthGradesV2();
       return res.status(200).json({ data: students });
